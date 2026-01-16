@@ -2,6 +2,7 @@
 #define __MENNY_TEST_UTILS_HPP__
 
 #include <string> // for std::string
+#include <iostream> // for std::ostream, std::cout
 
 #define RED_TEXT "\033[31m"
 #define GREEN_TEXT "\033[32m"
