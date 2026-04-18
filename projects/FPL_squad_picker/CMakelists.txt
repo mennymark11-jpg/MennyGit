@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(FPLFetcher)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# find packages
+find_package(CURL REQUIRED)
+find_package(SQLite3 REQUIRED)
+find_package(nlohmann_json REQUIRED)
+
+# include headers
+include_directories(inc)
+
+# sources
+set(SOURCES
+    main.cpp
+    src/database.cpp
+    src/fpl_client.cpp
+)
+
+add_executable(fpl_fetcher ${SOURCES})
+
+# link libraries
+target_link_libraries(fpl_fetcher
+    CURL::libcurl
+    SQLite::SQLite3
+    nlohmann_json::nlohmann_json
+)
